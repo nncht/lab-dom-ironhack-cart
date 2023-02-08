@@ -28,7 +28,10 @@ function calculateAll() {
 function removeProduct(event) {
   const target = event.currentTarget;
   console.log("The target in remove is:", target);
-  //... your code goes here
+
+  target.parentNode.removeChild(target);
+
+  // I'm lost... at least the Remove button removes itself.
 }
 
 // ITERATION 5
@@ -41,5 +44,8 @@ window.addEventListener("load", () => {
   const calculatePricesBtn = document.getElementById("calculate");
   calculatePricesBtn.addEventListener("click", calculateAll);
 
-  //... your code goes here
+  const removeItemBtn = document.getElementsByClassName("btn btn-remove");
+  for (let i = 0; i < removeItemBtn.length; i++) {
+    removeItemBtn[i].addEventListener("click", removeProduct);
+  }
 });
